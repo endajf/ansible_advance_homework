@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+
+  tasks:
+  - name: Create workstation inventory
+    add_host:
+       name: "workstation-{{OSP_GUID}}.rhpds.opentlc.com"
+       group: workstation
+
+- hosts: workstation
+  gather_facts: true
+  roles:
+  - name: osp-facts
+
+  tasks:
+  - name: Start instances
+    os_server_action:
+      action: start
+      server: "{{ item.name }}"
+      wait: true
+      timeout: 180
+    loop: "{{ result.ansible_facts.openstack_servers }}"
