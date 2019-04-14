@@ -1,2 +1,8 @@
 ---
 # defaults file for osp.servers
+
+server_list:
+  - { name: 'app1', metadata: 'group=apps,deployment_name=QA', security_groups: 'apps' }
+  - { name: 'app2', metadata: 'group=apps,deployment_name=QA', security_groups: 'apps' }
+  - { name: 'db', metadata: 'group=appdbs,deployment_name=QA', security_groups: 'db' }
+  - { name: 'frontend', metadata: 'group=frontends,deployment_name=QA', security_groups: 'frontend' }
