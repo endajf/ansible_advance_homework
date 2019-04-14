@@ -1,2 +1,4 @@
 ---
 # defaults file for lb-tier
+haproxy_port: 80
+tomcat_port: 8080

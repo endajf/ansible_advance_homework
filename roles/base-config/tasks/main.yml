@@ -1,2 +1,10 @@
 ---
 # tasks file for base-config
+# use http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo for packages
+
+- name: Download repo file
+  get_url:
+    url: http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+    dest: /etc/yum.repos.d/internal.repo
+    mode: 0644
+    backup: yes
