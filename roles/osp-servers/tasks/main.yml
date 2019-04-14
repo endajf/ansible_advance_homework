@@ -14,8 +14,8 @@
     security_groups: "{{ item.security_groups }}"
     userdata: |
       {%- raw -%}#!/bin/bash
-      wget http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
-      cat openstack.pub  >> /home/cloud-user/.ssh/authorized_keys
+      curl -o /tmp/openstack.pub  http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
+      cat /tmp/openstack.pub  >> /home/cloud-user/.ssh/authorized_keys
       {% endraw %}
   loop: "{{ server_list }}"
 
