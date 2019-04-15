@@ -32,7 +32,7 @@
 - name: Fetch Instance Info
   os_server_facts:
     cloud: ospcloud
-  register: server_facts
+  register: server_info
 
 - name: Wait for server to be available
   wait_for:
@@ -41,4 +41,4 @@
     search_regex: OpenSSH
     timeout: 600
     delay: 10
-  loop: "{{ ansible_facts.openstack_servers }}"
+  loop: "{{ server_info.ansible_facts.openstack_servers }}"

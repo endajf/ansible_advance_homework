@@ -13,4 +13,4 @@
       server: "{{ item.name }}"
       wait: true
       timeout: 180
-    loop: "{{ result.ansible_facts.openstack_servers }}"
+    loop: "{{ server_info.ansible_facts.openstack_servers }}"
